@@ -2,7 +2,7 @@
 
 ### Overview
 
-**UserCentrices** is a powerful SDK for Consent Management Platform (CMP).This SDK simplifies the process of obtaining consent from users for data collection and tracking. It ensures that users are informed about how their data is used, promoting transparency and compliance with privacy regulations.I thoroughly enjoyed working on this case study and exploring the features and benefits of UserCentrices.
+**UserCentrices** is a powerful SDK for the Consent Management Platform (CMP). This SDK simplifies the process of obtaining consent from users for data collection and tracking. It ensures that users are informed about how their data is used, promoting transparency and compliance with privacy regulations. I thoroughly enjoyed working on this case study and exploring the features and benefits of UserCentrices.
 
 ### Environment Requirements
 
@@ -50,3 +50,4 @@ State Flow is used to manage view state changes in the project. It provides a re
 - Employed the ConstraintLayout API to create flexible and responsive layouts, enabling complex UI designs.
 - Leveraged the Animation API in Jetpack Compose to add delightful animations and transitions to the UI, enhancing user experience.
 - Utilized Jetpack Compose Metrics to gather insights into UI performance and user interactions, aiding in optimization and refinement of the application.
+- Kotlin extension function of compose modifier.
