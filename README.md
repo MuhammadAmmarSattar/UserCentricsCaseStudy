@@ -24,13 +24,12 @@ To run this project, you need the following:
 
 # Used Technologies and Design Patterns
 
-## Architecture
+### Architecture
 ### MVVM (Model-View-ViewModel)
 The project follows the MVVM architecture pattern, which separates the user interface logic from the business logic and data handling.
 The project adopts Clean Architecture principles to maintain separation of concerns and improve testability, scalability, and maintainability.
 
-## Dependency Injection
-### Hilt
+#### Dependency Injection Hilt
 Hilt is used for dependency injection, providing a standard way to manage dependencies and simplify testing.
 
 ### Mockito
