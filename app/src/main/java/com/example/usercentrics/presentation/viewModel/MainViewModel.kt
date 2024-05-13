@@ -19,7 +19,11 @@ class MainViewModel @Inject constructor(private val calculateCostUseCase: Calcul
     private var _calculationState = MutableStateFlow(CalculationState())
     val calculationState = _calculationState.asStateFlow()
 
-
+    /**
+     * Applies consents for user-centric services. its better to move applyConsent from viewmodel
+     * to domain. just calculate cost here.//TODO
+     * @param consents List of UsercentricsServiceConsent representing user consents.
+     */
     fun applyConsent(consents: List<UsercentricsServiceConsent>){
         var totalCost = 0.0
         consents.forEach { consent ->
@@ -27,8 +31,8 @@ class MainViewModel @Inject constructor(private val calculateCostUseCase: Calcul
                 val service = cmpDataService.getCmpData().find { it.templateId == consent.templateId }
                 service?.let {
                     val consentModel = calculateCostUseCase.execute(it.dataCollectedList)
-                    printFilteredServiceCosts(consentModel)
-                    totalCost += consentModel.rulesCost ?:0.0
+                    printServiceCosts(consentModel)
+                    totalCost += consentModel.rulesCost
 
                 }
             }
@@ -36,13 +40,17 @@ class MainViewModel @Inject constructor(private val calculateCostUseCase: Calcul
         _calculationState.value = CalculationState(totalCost = totalCost)
     }
 
-    private fun printFilteredServiceCosts(consentModel: ConsentModel) {
+    /**
+     * Prints service costs for the console.
+     * @param consentModel ConsentModel representing the calculated consent model.
+     */
+    private fun printServiceCosts(consentModel: ConsentModel) {
         println("Filtered Service Costs:")
-        consentModel.eachServiceNameCost.forEach { (service, cost) ->
+        consentModel.eachServiceNameAndCost.forEach { (service, cost) ->
             println("$service = $cost")
         }
         println("Each Service Total cost = ${consentModel.totalCostEachService}")
-        println("Rule Cost = ${consentModel.rulesCost}")
+        //println("Rule Cost = ${consentModel.rulesCost}")
     }
 }
 

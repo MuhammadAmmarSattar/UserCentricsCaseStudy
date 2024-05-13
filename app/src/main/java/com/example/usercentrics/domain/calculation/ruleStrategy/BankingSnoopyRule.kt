@@ -5,6 +5,12 @@ import com.example.usercentrics.utils.AppConstant.BANK_DETAILS
 import com.example.usercentrics.utils.AppConstant.CREDIT_DEBIT_CARD_NUMBER
 import com.example.usercentrics.utils.AppConstant.PURCHASE_ACTIVITY
 
+
+/**
+ * Implementation of CostCalculationRule for applying a banking snoopy rule.
+ * Increases the cost by 10% if the data types include purchase activity,
+ * bank details, and credit/debit card number.
+ */
 class BankingSnoopyRule : CostCalculationRule {
     override fun applyRule(baseCost: Double, dataTypes: List<String>): Double {
         var cost = baseCost
